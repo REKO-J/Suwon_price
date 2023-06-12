@@ -29,7 +29,10 @@ Jangan = suwon[suwon['시군구명'] == '장안구'].reset_index()
 Paldal= suwon[suwon['시군구명'] == '팔달구'].reset_index()
 
 # title
-st.title('수원시 물가 지수')
+st.title('수원시 물가 한눈에!')
+
+# header
+st.header('짜장면 가격')
 
 # selectbox
 option = st.selectbox('구를 선택하세요',
