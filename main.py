@@ -89,7 +89,7 @@ y = [suwon_Jan.loc[suwon_Jan['물가동향'].idxmax()]['물가동향'],
 # st.ylabel('(원)', rotation=0, labelpad=5, loc='top')
 # st.ylim(6000, 6600)
 
-chart_data = pd.DataFrame(x, 
+chart_data = pd.DataFrame(suwon_Jan, 
                           columns=["a", "b", "c"])
 
 st.bar_chart(chart_data)
