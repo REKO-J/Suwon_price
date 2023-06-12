@@ -28,6 +28,13 @@ Yeongtong = suwon[suwon['시군구명'] == '영통구'].reset_index()
 Jangan = suwon[suwon['시군구명'] == '장안구'].reset_index()
 Paldal= suwon[suwon['시군구명'] == '팔달구'].reset_index()
 
+# selectbox
+option = st.selectbox(
+         '구를 선택하세요',
+         ('권선구', '영통구', '장안구', '팔달구'))
+
+st.write('You selected:', option)
+
 st.write('==================== 권선구 ====================')
 st.write('권선구 짜장면의 최대 가격은', Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
          Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
