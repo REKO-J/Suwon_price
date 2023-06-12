@@ -28,6 +28,9 @@ Yeongtong = suwon[suwon['시군구명'] == '영통구'].reset_index()
 Jangan = suwon[suwon['시군구명'] == '장안구'].reset_index()
 Paldal= suwon[suwon['시군구명'] == '팔달구'].reset_index()
 
+# title
+st.title('수원시 물가 지수')
+
 # selectbox
 option = st.selectbox('구를 선택하세요',
                       ('권선구', '영통구', '장안구', '팔달구'))
