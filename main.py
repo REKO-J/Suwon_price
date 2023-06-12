@@ -68,6 +68,13 @@ elif option == '팔달구':
                   Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
          st.write('팔달구 짜장면의 최저 가격은', Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
                   Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+        
+# 짜장면 지수
+suwon_Jan = suwon[suwon['품목'] == '짜장면'].reset_index()[0:12]
+suwon_Feb = suwon[suwon['품목'] == '짜장면'].reset_index()[12:24]
+suwon_Mar = suwon[suwon['품목'] == '짜장면'].reset_index()[24:36]
+suwon_Apr = suwon[suwon['품목'] == '짜장면'].reset_index()[36:48]
+suwon_May = suwon[suwon['품목'] == '짜장면'].reset_index()[48:60]
       
 x = np.arange(1, 6)
 y = [suwon_Jan.loc[suwon_Jan['물가동향'].idxmax()]['물가동향'],
