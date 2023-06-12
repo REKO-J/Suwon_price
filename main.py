@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-st.text('hello Streamlit!')
-
 # 데이터 불러오기
 Jan = pd.read_csv('./data/경기도_수원시_물가동향_20230125.csv', encoding='cp949')
 Feb = pd.read_csv('./data/경기도_수원시_물가동향_20230228.csv', encoding='cp949')
@@ -40,7 +38,7 @@ st.write('\t')
 st.write('==================== 영통구 ====================')
 st.write('영통구 짜장면의 최대 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
          Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
-st.write('권선구 짜장면의 최저 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+st.write('영통구 짜장면의 최저 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
          Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
 st.write('\t')
 
