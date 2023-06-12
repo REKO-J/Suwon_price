@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-print('Hi')
+st.text('hello Streamlit!')
+
 # 데이터 불러오기
 # Jan = pd.read_csv('./data/경기도_수원시_물가동향_20230125.csv', encoding='cp949')
 # Feb = pd.read_csv('./data/경기도_수원시_물가동향_20230228.csv', encoding='cp949')
