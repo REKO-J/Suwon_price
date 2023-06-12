@@ -33,7 +33,7 @@ option = st.selectbox(
          '구를 선택하세요',
          ('권선구', '영통구', '장안구', '팔달구'))
 
-st.write('You selected:', option)
+st.write('선택:', option)
 
 if option == '권선구':
          st.write('==================== 권선구 ====================')
