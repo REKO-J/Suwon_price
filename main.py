@@ -30,24 +30,29 @@ Yeongtong = suwon[suwon['시군구명'] == '영통구'].reset_index()
 Jangan = suwon[suwon['시군구명'] == '장안구'].reset_index()
 Paldal= suwon[suwon['시군구명'] == '팔달구'].reset_index()
 
-plt.figure(figsize=(20, 5))
-plt.title('구별 짜장면 가격(2023.01 ~ 2023.05)')
-st.pyplot(Gwonseon[Gwonseon['품목'] == '짜장면']['기준일'], Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'],
-         linestyle='--',
-         marker='o',
-         label='권선구')
-plt.plot(Yeongtong[Yeongtong['품목'] == '짜장면']['기준일'], Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'],
-         linestyle='--',
-         marker='o',
-         label='영통구')
-plt.plot(Jangan[Jangan['품목'] == '짜장면']['기준일'], Jangan[Jangan['품목'] == '짜장면']['물가동향'],
-         linestyle='--',
-         marker='o',
-         label='장안구')
-plt.plot(Paldal[Paldal['품목'] == '짜장면']['기준일'], Paldal[Paldal['품목'] == '짜장면']['물가동향'],
-         linestyle='--',
-         marker='o',
-         label='팔달구')
-plt.legend(loc='best')
-plt.xticks(rotation=30)
-plt.show()
+st.text('==================== 권선구 ====================')
+st.text('권선구 짜장면의 최대 가격은', Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
+      Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
+st.text('권선구 짜장면의 최저 가격은', Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+      Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+st.text('\t')
+
+print('==================== 영통구 ====================')
+print('영통구 짜장면의 최대 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
+      Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
+print('권선구 짜장면의 최저 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+      Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+print('\t')
+
+print('==================== 장안구 ====================')
+print('장안구 짜장면의 최대 가격은', Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
+      Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
+print('장안구 짜장면의 최저 가격은', Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+      Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+print('\t')
+
+print('==================== 팔달구 ====================')
+print('팔달구 짜장면의 최대 가격은', Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
+      Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
+print('팔달구 짜장면의 최저 가격은', Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+      Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
