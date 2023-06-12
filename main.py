@@ -29,9 +29,8 @@ Jangan = suwon[suwon['시군구명'] == '장안구'].reset_index()
 Paldal= suwon[suwon['시군구명'] == '팔달구'].reset_index()
 
 # selectbox
-option = st.selectbox(
-         '구를 선택하세요',
-         ('권선구', '영통구', '장안구', '팔달구'))
+option = st.selectbox('구를 선택하세요',
+                      ('권선구', '영통구', '장안구', '팔달구'))
 
 st.write('선택:', option)
 
