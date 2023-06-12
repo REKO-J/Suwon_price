@@ -32,7 +32,7 @@ Paldal= suwon[suwon['시군구명'] == '팔달구'].reset_index()
 
 plt.figure(figsize=(20, 5))
 plt.title('구별 짜장면 가격(2023.01 ~ 2023.05)')
-plt.plot(Gwonseon[Gwonseon['품목'] == '짜장면']['기준일'], Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'],
+st.pyplot(Gwonseon[Gwonseon['품목'] == '짜장면']['기준일'], Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'],
          linestyle='--',
          marker='o',
          label='권선구')
