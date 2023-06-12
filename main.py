@@ -67,3 +67,16 @@ elif option == '팔달구':
                   Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
          st.write('팔달구 짜장면의 최저 가격은', Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
                   Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+      
+x = np.arange(1, 6)
+y = [suwon_Jan.loc[suwon_Jan['물가동향'].idxmax()]['물가동향'],
+     suwon_Feb.loc[suwon_Feb['물가동향'].idxmax()]['물가동향'],
+     suwon_Mar.loc[suwon_Mar['물가동향'].idxmax()]['물가동향'],
+     suwon_Apr.loc[suwon_Apr['물가동향'].idxmax()]['물가동향'],
+     suwon_May.loc[suwon_May['물가동향'].idxmax()]['물가동향'],]
+
+st.title('수원시 짜장면 지수')
+st.bar(x, y)
+st.xlabel('월')
+st.ylabel('(원)', rotation=0, labelpad=5, loc='top')
+st.ylim(6000, 6600)
