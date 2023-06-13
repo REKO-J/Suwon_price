@@ -97,7 +97,17 @@ st.bar_chart(chart_data)
 
 # 체크박스
 st.write('구를 선택해주세요')
-Gu = st.checkbox('권선구', '영통구')
+Gu = st.checkbox('권선구')
+Gu = st.checkbox('영통구')
+Gu = st.checkbox('장안구')
+Gu = st.checkbox('팔달구')
+
+# 품목
+st.write('품목을 선택해주세요')
+Gu = st.checkbox('권선구')
+Gu = st.checkbox('영통구')
+Gu = st.checkbox('장안구')
+Gu = st.checkbox('팔달구')
 
 if agree:
     st.write('Great!')
