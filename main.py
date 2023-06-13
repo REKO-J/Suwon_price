@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+#################### 데이터 ####################
 # 데이터 불러오기
 Jan = pd.read_csv('./data/경기도_수원시_물가동향_20230125.csv', encoding='cp949')
 Feb = pd.read_csv('./data/경기도_수원시_물가동향_20230228.csv', encoding='cp949')
@@ -29,6 +30,7 @@ Yeongtong = suwon[suwon['시군구명'] == '영통구'].reset_index()
 Jangan = suwon[suwon['시군구명'] == '장안구'].reset_index()
 Paldal= suwon[suwon['시군구명'] == '팔달구'].reset_index()
 
+################################################
 # title
 st.title('수원시 물가 한눈에!')
 
@@ -92,3 +94,5 @@ y = [suwon_Jan.loc[suwon_Jan['물가동향'].idxmax()]['물가동향'],
 chart_data = pd.DataFrame(y, x)
 
 st.bar_chart(chart_data)
+
+st.write('Hello, *World!* :sunglasses:')
