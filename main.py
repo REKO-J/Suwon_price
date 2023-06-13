@@ -95,4 +95,9 @@ chart_data = pd.DataFrame(y, x)
 
 st.bar_chart(chart_data)
 
-st.write('Hello, *World!* :sunglasses:')
+# 체크박스
+st.write('구를 선택해주세요')
+Gu = st.checkbox('권선구', '')
+
+if agree:
+    st.write('Great!')
