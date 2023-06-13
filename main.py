@@ -85,11 +85,11 @@ y = [Suwon_Jan.loc[Suwon_Jan['물가동향'].idxmax()]['물가동향'],
      Suwon_Apr.loc[Suwon_Apr['물가동향'].idxmax()]['물가동향'],
      Suwon_May.loc[Suwon_May['물가동향'].idxmax()]['물가동향'],]
 
-# st.title('수원시 짜장면 지수')
-# st.bar_chart(x, y)
-# st.xlabel('월')
-# st.ylabel('(원)', rotation=0, labelpad=5, loc='top')
-# st.ylim(6000, 6600)
+st.title('수원시 짜장면 지수')
+st.bar_chart(x, y)
+st.xlabel('월')
+st.ylabel('(원)', rotation=0, labelpad=5, loc='top')
+st.ylim(6000, 6600)
 
 chart_data = pd.DataFrame(y, x)
 
