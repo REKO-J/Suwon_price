@@ -12,23 +12,23 @@ Apr = pd.read_csv('./data/경기도_수원시_물가동향_20230428.csv', encodi
 May = pd.read_csv('./data/경기도_수원시_물가동향_20230526.csv', encoding='cp949')
 
 # 데이터 병합
-suwon = pd.concat([Jan, Feb, Mar, Apr, May])
+SSwon = pd.concat([Jan, Feb, Mar, Apr, May])
 
 # 데이터 결측치 처리
-suwon['물가동향'] = suwon['물가동향'].fillna(0)
+SSwon['물가동향'] = SSwon['물가동향'].fillna(0)
 
 # 데이터 이상값 처리
-suwon[suwon['물가동향'] == '-'] = 0
-suwon[suwon['물가동향'] == ' - '] = 0
+SSwon[SSwon['물가동향'] == '-'] = 0
+SSwon[SSwon['물가동향'] == ' - '] = 0
 
 # 데이터 타입 변경
-suwon['물가동향'] = suwon['물가동향'].astype('float')
+SSwon['물가동향'] = SSwon['물가동향'].astype('float')
 
-# 구별 짜장면 가격
-Gwonseon = suwon[suwon['시군구명'] == '권선구'].reset_index()
-Yeongtong = suwon[suwon['시군구명'] == '영통구'].reset_index()
-Jangan = suwon[suwon['시군구명'] == '장안구'].reset_index()
-Paldal= suwon[suwon['시군구명'] == '팔달구'].reset_index()
+# 구별로 저장
+Gwonseon = SSwon[SSwon['시군구명'] == '권선구'].reset_index()
+Yeongtong = SSwon[SSwon['시군구명'] == '영통구'].reset_index()
+Jangan = SSwon[SSwon['시군구명'] == '장안구'].reset_index()
+Paldal= SSwon[SSwon['시군구명'] == '팔달구'].reset_index()
 
 ################################################
 # title
@@ -72,18 +72,18 @@ elif option == '팔달구':
                   Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
         
 # 짜장면 지수
-suwon_Jan = suwon[suwon['품목'] == '짜장면'].reset_index()[0:12]
-suwon_Feb = suwon[suwon['품목'] == '짜장면'].reset_index()[12:24]
-suwon_Mar = suwon[suwon['품목'] == '짜장면'].reset_index()[24:36]
-suwon_Apr = suwon[suwon['품목'] == '짜장면'].reset_index()[36:48]
-suwon_May = suwon[suwon['품목'] == '짜장면'].reset_index()[48:60]
+Suwon_Jan = Suwon[Suwon['품목'] == '짜장면'].reset_index()[0:12]
+Suwon_Feb = Suwon[Suwon['품목'] == '짜장면'].reset_index()[12:24]
+Suwon_Mar = Suwon[Suwon['품목'] == '짜장면'].reset_index()[24:36]
+Suwon_Apr = Suwon[Suwon['품목'] == '짜장면'].reset_index()[36:48]
+Suwon_May = Suwon[Suwon['품목'] == '짜장면'].reset_index()[48:60]
       
 x = np.arange(1, 6)
-y = [suwon_Jan.loc[suwon_Jan['물가동향'].idxmax()]['물가동향'],
-     suwon_Feb.loc[suwon_Feb['물가동향'].idxmax()]['물가동향'],
-     suwon_Mar.loc[suwon_Mar['물가동향'].idxmax()]['물가동향'],
-     suwon_Apr.loc[suwon_Apr['물가동향'].idxmax()]['물가동향'],
-     suwon_May.loc[suwon_May['물가동향'].idxmax()]['물가동향'],]
+y = [Suwon_Jan.loc[Suwon_Jan['물가동향'].idxmax()]['물가동향'],
+     Suwon_Feb.loc[Suwon_Feb['물가동향'].idxmax()]['물가동향'],
+     Suwon_Mar.loc[Suwon_Mar['물가동향'].idxmax()]['물가동향'],
+     Suwon_Apr.loc[Suwon_Apr['물가동향'].idxmax()]['물가동향'],
+     Suwon_May.loc[Suwon_May['물가동향'].idxmax()]['물가동향'],]
 
 # st.title('수원시 짜장면 지수')
 # st.bar_chart(x, y)
@@ -95,13 +95,10 @@ chart_data = pd.DataFrame(y, x)
 
 st.bar_chart(chart_data)
 
-# 체크박스
-st.write('구를 선택해주세요')
-Gu = st.checkbox('권선구')
-Gu = st.checkbox('영통구')
-Gu = st.checkbox('장안구')
-Gu = st.checkbox('팔달구')
+#################### 체크박스 ####################
+# 지역
+Gu = st.multiselect('지역을 선택해주세요',
+                    ['권선구', '영통구', '장안구', '팔달구'])
 
-options = st.multiselect('지역을 선택해주세요',
-                         ['권선구', '영통구', '장안구', '팔달구'])
-st.write('선택한 지역:', options)
+
+##################################################
