@@ -102,12 +102,6 @@ Gu = st.checkbox('영통구')
 Gu = st.checkbox('장안구')
 Gu = st.checkbox('팔달구')
 
-# 품목
-st.write('품목을 선택해주세요')
-Gu = st.checkbox('권선구')
-Gu = st.checkbox('영통구')
-Gu = st.checkbox('장안구')
-Gu = st.checkbox('팔달구')
-
-if agree:
-    st.write('Great!')
+options = st.multiselect('지역을 선택해주세요',
+                         ['권선구', '영통구', '장안구', '팔달구'])
+st.write('선택한 지역:', options)
