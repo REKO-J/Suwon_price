@@ -12,23 +12,23 @@ Apr = pd.read_csv('./data/경기도_수원시_물가동향_20230428.csv', encodi
 May = pd.read_csv('./data/경기도_수원시_물가동향_20230526.csv', encoding='cp949')
 
 # 데이터 병합
-SSwon = pd.concat([Jan, Feb, Mar, Apr, May])
+Suwon = pd.concat([Jan, Feb, Mar, Apr, May])
 
 # 데이터 결측치 처리
-SSwon['물가동향'] = SSwon['물가동향'].fillna(0)
+Suwon['물가동향'] = Suwon['물가동향'].fillna(0)
 
 # 데이터 이상값 처리
-SSwon[SSwon['물가동향'] == '-'] = 0
-SSwon[SSwon['물가동향'] == ' - '] = 0
+Suwon[Suwon['물가동향'] == '-'] = 0
+Suwon[Suwon['물가동향'] == ' - '] = 0
 
 # 데이터 타입 변경
-SSwon['물가동향'] = SSwon['물가동향'].astype('float')
+Suwon['물가동향'] = Suwon['물가동향'].astype('float')
 
 # 구별로 저장
-Gwonseon = SSwon[SSwon['시군구명'] == '권선구'].reset_index()
-Yeongtong = SSwon[SSwon['시군구명'] == '영통구'].reset_index()
-Jangan = SSwon[SSwon['시군구명'] == '장안구'].reset_index()
-Paldal= SSwon[SSwon['시군구명'] == '팔달구'].reset_index()
+Gwonseon = Suwon[Suwon['시군구명'] == '권선구'].reset_index()
+Yeongtong = Suwon[Suwon['시군구명'] == '영통구'].reset_index()
+Jangan = Suwon[Suwon['시군구명'] == '장안구'].reset_index()
+Paldal= Suwon[Suwon['시군구명'] == '팔달구'].reset_index()
 
 ################################################
 # title
