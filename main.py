@@ -52,7 +52,11 @@ if option == '권선구':
            Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
 
   # 짜장면 가격 변동 추이
-  st.line_chart(Gwonseon[Gwonseon['품목'] == '짜장면']['기준일'], Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'])
+  x = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
+  y = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'])
+  
+  chart_data = pd.DataFrame(x, y)
+  st.line_chart(chart_data)
 
 elif option == '영통구':
   st.write('==================== 영통구 ====================')
