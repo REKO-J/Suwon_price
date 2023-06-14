@@ -55,6 +55,11 @@ if option == '권선구':
   x = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
   y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
 
+  chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
+  st.line_chart(chart_data)
+  
   st.write(x)
   st.write(y)
   chart_data = pd.DataFrame(x, y)
