@@ -52,10 +52,10 @@ if option == '권선구':
            Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
 
   # 짜장면 가격 변동 추이
-  x = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
-  y = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
+  x = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
+  y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
   
-  chart_data = pd.DataFrame(y, x)
+  chart_data = pd.DataFrame(x, y)
   st.line_chart(chart_data)
 
 elif option == '영통구':
@@ -86,12 +86,12 @@ Suwon_Mar = Suwon[Suwon['품목'] == '짜장면'].reset_index()[24:36]
 Suwon_Apr = Suwon[Suwon['품목'] == '짜장면'].reset_index()[36:48]
 Suwon_May = Suwon[Suwon['품목'] == '짜장면'].reset_index()[48:60]
       
-x = np.arange(1, 6)
-y = [Suwon_Jan.loc[Suwon_Jan['물가동향'].idxmax()]['물가동향'],
+x = [Suwon_Jan.loc[Suwon_Jan['물가동향'].idxmax()]['물가동향'],
      Suwon_Feb.loc[Suwon_Feb['물가동향'].idxmax()]['물가동향'],
      Suwon_Mar.loc[Suwon_Mar['물가동향'].idxmax()]['물가동향'],
      Suwon_Apr.loc[Suwon_Apr['물가동향'].idxmax()]['물가동향'],
      Suwon_May.loc[Suwon_May['물가동향'].idxmax()]['물가동향']]
+y = np.arange(1, 6)
 
-chart_data = pd.DataFrame(y, x)
+chart_data = pd.DataFrame(x, y)
 st.bar_chart(chart_data)
