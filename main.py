@@ -53,10 +53,9 @@ if option == '권선구':
 
   # 짜장면 가격 변동 추이
   x = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
-  # y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
-  y = np.arange(1, 16)
+  y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
   
-  chart_data = pd.DataFrame(x, y)
+  chart_data = pd.DataFrame(liset(x), y)
   st.line_chart(chart_data)
 
 elif option == '영통구':
