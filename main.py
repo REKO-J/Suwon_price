@@ -38,67 +38,72 @@ st.title('수원시 물가 한눈에!')
 st.header('짜장면 가격')
 
 # sidebar
-option = st.sidebar.selectbox('Menu',
-                              ('페이지1', '페이지2', '페이지3'))
+option = st.sidebar.selectbox('Menu', ('main', 'test'))
 
-# 짜장면 가격 변동 추이
-x1 = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
-x2 = Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향']
-x3 = Jangan[Jangan['품목'] == '짜장면']['물가동향']
-x4 = Paldal[Paldal['품목'] == '짜장면']['물가동향']
-y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
+#################### main ####################
+if option == 'main'
+st.write('main 페이지 입니다')
+
+#################### test ####################
+if option == 'test'
+  # 짜장면 가격 변동 추이
+  x1 = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
+  x2 = Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향']
+  x3 = Jangan[Jangan['품목'] == '짜장면']['물가동향']
+  x4 = Paldal[Paldal['품목'] == '짜장면']['물가동향']
+  y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
+    
+  chart_data = pd.DataFrame(np.array([x1, x2, x3, x4]).T, y, columns=['권선구', '영통구', '장안구', '팔달구'])
+  st.line_chart(chart_data)
   
-chart_data = pd.DataFrame(np.array([x1, x2, x3, x4]).T, y, columns=['권선구', '영통구', '장안구', '팔달구'])
-st.line_chart(chart_data)
-
-# selectbox
-option = st.selectbox('구를 선택하세요',
-                      ('권선구', '영통구', '장안구', '팔달구'))
-
-st.write('선택:', option)
-
-if option == '권선구':
-  # 짜장면 최대, 최소 가격
-  st.write('==================== 권선구 ====================')
-  st.write('권선구 짜장면의 최대 가격은', Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
-           Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
-  st.write('권선구 짜장면의 최저 가격은', Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
-           Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
-
-elif option == '영통구':
-  st.write('==================== 영통구 ====================')
-  st.write('영통구 짜장면의 최대 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
-           Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
-  st.write('영통구 짜장면의 최저 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
-           Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
-
-elif option == '장안구':
-  st.write('==================== 장안구 ====================')
-  st.write('장안구 짜장면의 최대 가격은', Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
-           Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
-  st.write('장안구 짜장면의 최저 가격은', Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
-           Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
-
-elif option == '팔달구':
-  st.write('==================== 팔달구 ====================')
-  st.write('팔달구 짜장면의 최대 가격은', Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
-           Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
-  st.write('팔달구 짜장면의 최저 가격은', Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
-           Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+  # selectbox
+  option = st.selectbox('구를 선택하세요',
+                        ('권선구', '영통구', '장안구', '팔달구'))
+  
+  st.write('선택:', option)
+  
+  if option == '권선구':
+    # 짜장면 최대, 최소 가격
+    st.write('==================== 권선구 ====================')
+    st.write('권선구 짜장면의 최대 가격은', Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
+             Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
+    st.write('권선구 짜장면의 최저 가격은', Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+             Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+  
+  elif option == '영통구':
+    st.write('==================== 영통구 ====================')
+    st.write('영통구 짜장면의 최대 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
+             Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
+    st.write('영통구 짜장면의 최저 가격은', Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+             Yeongtong.loc[Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+  
+  elif option == '장안구':
+    st.write('==================== 장안구 ====================')
+    st.write('장안구 짜장면의 최대 가격은', Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
+             Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
+    st.write('장안구 짜장면의 최저 가격은', Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+             Jangan.loc[Jangan[Jangan['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+  
+  elif option == '팔달구':
+    st.write('==================== 팔달구 ====================')
+    st.write('팔달구 짜장면의 최대 가격은', Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmax()]['기준일'], '의',
+             Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
+    st.write('팔달구 짜장면의 최저 가격은', Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
+             Paldal.loc[Paldal[Paldal['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
+          
+  # 짜장면 지수
+  Suwon_Jan = Suwon[Suwon['품목'] == '짜장면'].reset_index()[0:12]
+  Suwon_Feb = Suwon[Suwon['품목'] == '짜장면'].reset_index()[12:24]
+  Suwon_Mar = Suwon[Suwon['품목'] == '짜장면'].reset_index()[24:36]
+  Suwon_Apr = Suwon[Suwon['품목'] == '짜장면'].reset_index()[36:48]
+  Suwon_May = Suwon[Suwon['품목'] == '짜장면'].reset_index()[48:60]
         
-# 짜장면 지수
-Suwon_Jan = Suwon[Suwon['품목'] == '짜장면'].reset_index()[0:12]
-Suwon_Feb = Suwon[Suwon['품목'] == '짜장면'].reset_index()[12:24]
-Suwon_Mar = Suwon[Suwon['품목'] == '짜장면'].reset_index()[24:36]
-Suwon_Apr = Suwon[Suwon['품목'] == '짜장면'].reset_index()[36:48]
-Suwon_May = Suwon[Suwon['품목'] == '짜장면'].reset_index()[48:60]
-      
-x = [Suwon_Jan.loc[Suwon_Jan['물가동향'].idxmax()]['물가동향'],
-     Suwon_Feb.loc[Suwon_Feb['물가동향'].idxmax()]['물가동향'],
-     Suwon_Mar.loc[Suwon_Mar['물가동향'].idxmax()]['물가동향'],
-     Suwon_Apr.loc[Suwon_Apr['물가동향'].idxmax()]['물가동향'],
-     Suwon_May.loc[Suwon_May['물가동향'].idxmax()]['물가동향']]
-y = np.arange(1, 6)
-
-chart_data = pd.DataFrame(x, y)
-st.bar_chart(chart_data)
+  x = [Suwon_Jan.loc[Suwon_Jan['물가동향'].idxmax()]['물가동향'],
+       Suwon_Feb.loc[Suwon_Feb['물가동향'].idxmax()]['물가동향'],
+       Suwon_Mar.loc[Suwon_Mar['물가동향'].idxmax()]['물가동향'],
+       Suwon_Apr.loc[Suwon_Apr['물가동향'].idxmax()]['물가동향'],
+       Suwon_May.loc[Suwon_May['물가동향'].idxmax()]['물가동향']]
+  y = np.arange(1, 6)
+  
+  chart_data = pd.DataFrame(x, y)
+  st.bar_chart(chart_data)
