@@ -37,6 +37,16 @@ st.title('수원시 물가 한눈에!')
 # header
 st.header('짜장면 가격')
 
+# 짜장면 가격 변동 추이
+x1 = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
+x2 = Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향']
+x3 = Jangan[Jangan['품목'] == '짜장면']['물가동향']
+x4 = Paldal[Paldal['품목'] == '짜장면']['물가동향']
+y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
+  
+chart_data = pd.DataFrame(np.array([x1, x2, x3, x4]).T, y, columns=['권선구', '영통구', '장안구', '팔달구'])
+st.line_chart(chart_data)
+
 # selectbox
 option = st.selectbox('구를 선택하세요',
                       ('권선구', '영통구', '장안구', '팔달구'))
@@ -50,16 +60,6 @@ if option == '권선구':
            Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmax()]['물가동향'], '원 입니다.')
   st.write('권선구 짜장면의 최저 가격은', Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['기준일'], '의',
            Gwonseon.loc[Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향'].idxmin()]['물가동향'], '원 입니다.')
-
-  # 짜장면 가격 변동 추이
-  x1 = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
-  x2 = Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향']
-  x3 = Jangan[Jangan['품목'] == '짜장면']['물가동향']
-  x4 = Paldal[Paldal['품목'] == '짜장면']['물가동향']
-  y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
-  
-  chart_data = pd.DataFrame(np.array([x1, x2, x3, x4]).T, y, columns=['권선구', '영통구', '장안구', '팔달구'])
-  st.line_chart(chart_data)
 
 elif option == '영통구':
   st.write('==================== 영통구 ====================')
