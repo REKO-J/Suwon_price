@@ -30,7 +30,7 @@ Yeongtong = Suwon[Suwon['시군구명'] == '영통구'].reset_index()
 Jangan = Suwon[Suwon['시군구명'] == '장안구'].reset_index()
 Paldal= Suwon[Suwon['시군구명'] == '팔달구'].reset_index()
 
-################################################
+#################### UI ####################
 # title
 st.title('수원시 물가 한눈에!')
 
