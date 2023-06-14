@@ -41,6 +41,38 @@ option = st.sidebar.selectbox('Menu', ('Main', 'Test'))
 if option == 'Main':
   st.write('Main 페이지 입니다')
 
+  select = set(Suwon['구분'])
+  st.write(select)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #################### Test ####################
 if option == 'Test':
   st.write('Test 페이지 입니다')
