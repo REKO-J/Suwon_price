@@ -58,7 +58,7 @@ if option == '권선구':
   x4 = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
   y = Paldal[Paldal['품목'] == '짜장면']['기준일']
   
-  chart_data = pd.DataFrame(np.array([x1, x2, x3, x4]), y)
+  chart_data = pd.DataFrame(np.array([x1, x2, x3, x4]))
   st.line_chart(chart_data)
 
 elif option == '영통구':
