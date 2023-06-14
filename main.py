@@ -62,7 +62,7 @@ if option == '권선구':
   
   st.write(x)
   st.write(y)
-  chart_data = pd.DataFrame(x, y)
+  chart_data = pd.DataFrame(x)
   st.line_chart(chart_data)
 
 elif option == '영통구':
