@@ -53,12 +53,13 @@ if option == '권선구':
 
   # 짜장면 가격 변동 추이
   x = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
-  y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
-
-  st.write(len(x))
-  st.write(len(y))
+  # y = Gwonseon[Gwonseon['품목'] == '짜장면']['기준일']
+  y = ['2023-01-04', '2023-01-14', '2023-01-24', '2023-02-04',
+       '2023-02-14', '2023-02-24', '2023-03-04', '2023-03-14',
+       '2023-03-24', '2023-04-04', '2023-04-14', '2023-04-24',
+       '2023-05-04', '2023-05-14', '2023-05-24']
   
-  chart_data = pd.DataFrame(x)
+  chart_data = pd.DataFrame(x, y)
   st.line_chart(chart_data)
 
 elif option == '영통구':
