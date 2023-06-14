@@ -37,8 +37,7 @@ st.title('수원시 물가 한눈에!')
 # header
 st.header('짜장면 가격')
 
-with st.sidebar:
-    st.[element_name]
+st.sidebar.[element_name]
 
 # 짜장면 가격 변동 추이
 x1 = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
