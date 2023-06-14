@@ -34,18 +34,20 @@ Paldal= Suwon[Suwon['시군구명'] == '팔달구'].reset_index()
 # title
 st.title('수원시 물가 한눈에!')
 
-# header
-st.header('짜장면 가격')
-
 # sidebar
-option = st.sidebar.selectbox('Menu', ('main', 'test'))
+option = st.sidebar.selectbox('Menu', ('Main', 'Test'))
 
 #################### main ####################
-if option == 'main':
-  st.write('main 페이지 입니다')
+if option == 'Main':
+  st.write('Main 페이지 입니다')
 
 #################### test ####################
-if option == 'test':
+if option == 'Test':
+  st.write('Test 페이지 입니다')
+  
+  # header
+  st.header('짜장면 가격')
+  
   # 짜장면 가격 변동 추이
   x1 = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
   x2 = Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향']
