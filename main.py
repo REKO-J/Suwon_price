@@ -37,11 +37,11 @@ st.title('수원시 물가 한눈에!')
 # sidebar
 option = st.sidebar.selectbox('Menu', ('Main', 'Test'))
 
-#################### main ####################
+#################### Main ####################
 if option == 'Main':
   st.write('Main 페이지 입니다')
 
-#################### test ####################
+#################### Test ####################
 if option == 'Test':
   st.write('Test 페이지 입니다')
   
