@@ -41,11 +41,11 @@ st.header('짜장면 가격')
 option = st.sidebar.selectbox('Menu', ('main', 'test'))
 
 #################### main ####################
-if option == 'main'
-st.write('main 페이지 입니다')
+if option == 'main':
+  st.write('main 페이지 입니다')
 
 #################### test ####################
-if option == 'test'
+if option == 'test':
   # 짜장면 가격 변동 추이
   x1 = Gwonseon[Gwonseon['품목'] == '짜장면']['물가동향']
   x2 = Yeongtong[Yeongtong['품목'] == '짜장면']['물가동향']
